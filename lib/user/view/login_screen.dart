@@ -27,11 +27,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
     final dio = Dio();
 
-    // localhost
-    final emulatorIp = '10.0.2.2:3000';
-    final simulatorIp = '127.0.0.1:3000';
-
-    final ip = Platform.isIOS == true ? simulatorIp : emulatorIp;
 
     return DefaultLayout(
       child: SingleChildScrollView(
@@ -104,19 +99,6 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 TextButton(
                   onPressed: () async {
-                    final refreshToken =
-                        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RAY29kZWZhY3RvcnkuYWkiLCJzdWIiOiJmNTViMzJkMi00ZDY4LTRjMWUtYTNjYS1kYTlkN2QwZDkyZTUiLCJ0eXBlIjoicmVmcmVzaCIsImlhdCI6MTcyOTgzNDAzMSwiZXhwIjoxNzI5OTIwNDMxfQ.ce5_cb5in-6oAEYafI82n4oHmXFHW-M1H_1qjBrgiC0, accessToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RAY29kZWZhY3RvcnkuYWkiLCJzdWIiOiJmNTViMzJkMi00ZDY4LTRjMWUtYTNjYS1kYTlkN2QwZDkyZTUiLCJ0eXBlIjoiYWNjZXNzIiwiaWF0IjoxNzI5ODM0MDMxLCJleHAiOjE3Mjk4MzQzMzF9.ap5CEyNA3tGpL6-83rIC88RC_67BRu7qm5cMbkH60q4';
-
-                    final resp = await dio.post(
-                      'http://$ip/auth/token',
-                      options: Options(
-                        headers: {
-                          'authorization': 'Bearer $refreshToken',
-                        },
-                      ),
-                    );
-
-                    print(resp.data);
                   },
                   style: TextButton.styleFrom(
                     foregroundColor: Colors.black,
