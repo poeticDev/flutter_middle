@@ -11,4 +11,7 @@ final simulatorIp = '127.0.0.1:3000';
 
 final ip = Platform.isIOS == true ? simulatorIp : emulatorIp;
 
+final id = 'test@codefactory.io';
+final pw = 'testtest';
+
 final storage = FlutterSecureStorage();
